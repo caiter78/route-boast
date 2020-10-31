@@ -1,0 +1,21 @@
+_id: req_wrk_4ca22d30ba884365badbfaa8341276bd4e5a2893
+type: Request
+parentId: wrk_4ca22d30ba884365badbfaa8341276bd
+modified: 1604175349865
+created: 1604175342799
+url: "{{ base_url }}/api/v1/auth"
+name: /api/v1/auth
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1604175342799
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

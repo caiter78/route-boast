@@ -1,0 +1,112 @@
+_id: spc_06eafa5d68a34f128c9c48c8470454a5
+type: ApiSpec
+parentId: wrk_4ca22d30ba884365badbfaa8341276bd
+modified: 1604175970160
+created: 1604175181610
+fileName: RouteBoats
+contents: |-
+  {
+    "openapi": "3.0.1",
+    "info": {
+      "title": "RouteBoast",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/v1/auth/login": {
+        "post": {
+          "tags": [
+            "Auth"
+          ],
+          "operationId": "Login",
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "401": {
+              "description": "Unavtorized"
+            }
+          }
+        }
+      },
+      "/api/v1/auth/logout": {
+        "get": {
+          "tags": [
+            "Auth"
+          ],
+          "operationId": "Logout",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/dashboard": {
+        "get": {
+          "tags": [
+            "Dashboard"
+          ],
+          "operationId": "Dashboard",
+          "responses": {
+             "200": {
+               "description": "Success"
+             },
+             "401": {
+               "description": "Unavtorized"
+             }
+          }
+        }
+      },
+      "/api/v1/route": {
+        "get": {
+          "tags": [
+            "Route"
+          ],
+          "operationId": "GetAllRoutes",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/users": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "operationId": "GetAllUsers",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/users/{id}": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": { }
+  }
+contentType: yaml

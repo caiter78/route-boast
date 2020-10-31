@@ -1,0 +1,21 @@
+_id: req_wrk_4ca22d30ba884365badbfaa8341276bde3446ba5
+type: Request
+parentId: wrk_4ca22d30ba884365badbfaa8341276bd
+modified: 1604175349860
+created: 1604175342795
+url: "{{ base_url }}/api/v1/route"
+name: /api/v1/route
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1604175342795
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
