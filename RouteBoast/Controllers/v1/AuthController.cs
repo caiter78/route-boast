@@ -7,8 +7,14 @@ namespace RouteBoast.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class AuthController : ControllerBase
     {
-        [HttpGet(Name = nameof(Login))]
+        [HttpPost("Login", Name = nameof(Login))]
         public ActionResult Login()
+        {
+            return new OkResult();
+        }
+
+        [HttpGet("Logout", Name = nameof(Logout))]
+        public ActionResult Logout()
         {
             return new OkResult();
         }

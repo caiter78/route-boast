@@ -8,15 +8,15 @@ namespace RouteBoast.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class UsersController : ControllerBase
     {
-        [HttpGet(Name = nameof(GetAll))]
-        public ActionResult GetAll(ApiVersion version)
+        [HttpGet(Name = nameof(GetAllUsers))]
+        public ActionResult GetAllUsers(ApiVersion version)
         {
             return new OkResult();
         }
         
         [HttpGet]
         [Route("{id:int}")]
-        public ActionResult GetOne(ApiVersion version, int id)
+        public ActionResult GetUser(ApiVersion version, int id)
         {
             return new OkResult();
         }
