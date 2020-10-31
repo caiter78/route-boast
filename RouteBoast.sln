@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteBoast", "RouteBoast\RouteBoast.csproj", "{022FECDB-4634-4A18-961F-3EE7F62D50CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{4F05670D-E956-4609-9969-580F0515257F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{022FECDB-4634-4A18-961F-3EE7F62D50CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022FECDB-4634-4A18-961F-3EE7F62D50CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022FECDB-4634-4A18-961F-3EE7F62D50CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022FECDB-4634-4A18-961F-3EE7F62D50CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F05670D-E956-4609-9969-580F0515257F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F05670D-E956-4609-9969-580F0515257F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F05670D-E956-4609-9969-580F0515257F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F05670D-E956-4609-9969-580F0515257F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
