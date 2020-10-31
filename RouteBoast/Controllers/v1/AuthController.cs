@@ -12,11 +12,5 @@ namespace RouteBoast.Controllers.v1
         {
             return new OkResult();
         }
-
-        [HttpGet(Name = nameof(Logout))]
-        public ActionResult Logout()
-        {
-            return new OkResult();
-        }
     }
 }

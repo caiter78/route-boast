@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RouteBoast.Controllers.v1

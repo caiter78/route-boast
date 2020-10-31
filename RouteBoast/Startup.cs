@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Data;
 using Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace RouteBoast
 {
@@ -31,6 +26,11 @@ namespace RouteBoast
         {
             services.AddOptions();
             services.AddRouting(options => options.LowercaseUrls = true);
+            
+            // Add framework services.
+            services.AddDbContext<DataContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddControllers()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
