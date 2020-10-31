@@ -14,7 +14,6 @@ namespace Helpers
                     config.ReportApiVersions = true;
                     config.AssumeDefaultVersionWhenUnspecified = true;
                     config.DefaultApiVersion = new ApiVersion(1, 0);
-                    config.ApiVersionReader = new HeaderApiVersionReader("api-version");
                 });
             services.AddVersionedApiExplorer(
                 options =>
