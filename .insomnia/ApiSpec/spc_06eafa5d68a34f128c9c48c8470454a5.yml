@@ -1,7 +1,7 @@
 _id: spc_06eafa5d68a34f128c9c48c8470454a5
 type: ApiSpec
 parentId: wrk_4ca22d30ba884365badbfaa8341276bd
-modified: 1604175970160
+modified: 1604231713868
 created: 1604175181610
 fileName: RouteBoats
 contents: |-
@@ -57,12 +57,80 @@ contents: |-
           }
         }
       },
-      "/api/v1/route": {
+      "/api/v1/routes": {
         "get": {
           "tags": [
-            "Route"
+            "Routes"
           ],
           "operationId": "GetAllRoutes",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/routes/top": {
+        "get": {
+          "tags": [
+            "Routes"
+          ],
+          "operationId": "Top routes",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/routes/{id}": {
+        "get": {
+          "tags": [
+            "Routes"
+          ],
+          "operationId": "GetRoute",
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          tags: ["Routes"],
+          "operationId": "DeleteRouteId",
+           "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/v1/routes/{id}/like": {
+        post: {
+          tags: ["Routes"],
+          "operationId": "like route",
+             "responses": {
+              "200": {
+                "description": "Success"
+              }
+          }
+        },
+        delete: {
+          tags: ["Routes"],
+          "operationId": "Unlike route",
+             "responses": {
+              "200": {
+                "description": "Success"
+              }
+          }
+        }
+      },
+      "/api/v1/routes/upload": {
+        "post": {
+          "tags": [
+            "Routes"
+          ],
+          "operationId": "Upload route",
           "responses": {
             "200": {
               "description": "Success"
