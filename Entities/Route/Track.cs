@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Entities.Common;
+﻿using System.Collections.Generic;
 
 namespace Entities.Route
 {
-    public class Track: BaseEntity<long>
+    public class Track
     {
-        public ICollection<Waypoint> Waypoints { get; set; }
+        public long Id { get; set; }
+        public virtual ICollection<Waypoint> Waypoints { get; set; }
     }
 }

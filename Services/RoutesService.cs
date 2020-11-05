@@ -1,50 +1,50 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Data.Repositories;
+using Data.Contracts;
 using Entities.Route;
 
 namespace Services
 {
-    public class RoutesService
+    public class RoutesService : IRoutesService
     {
-        private readonly RouteRepository _repository;
+        private readonly IRoutesRepository _routesRepository;
         
-        public RoutesService(RouteRepository repository)
+        public RoutesService(IRoutesRepository routesRepository)
         {
-            _repository = repository;
+            _routesRepository = routesRepository;
         }
 
         public async Task<List<Route>> GetAllAsync(CancellationToken cancellationToken)
         {
-            return await _repository.GetAllAsync(cancellationToken);
+            return await _routesRepository.GetAllAsync(cancellationToken);
         }
         
         public async Task<Route> GetByIdAsync(long id, CancellationToken cancellationToken)
         {
-            return await _repository.GetByIdAsync(cancellationToken, id);
+            return await _routesRepository.GetByIdAsync(id, cancellationToken);
         }
         
         public async void Update(Route route, CancellationToken cancellationToken)
         {
-            await _repository.UpdateAsync(route, cancellationToken);
+            await _routesRepository.UpdateAsync(route, cancellationToken);
         }
         
         public async void Like(Route route, CancellationToken cancellationToken)
         {
             route.LikeCount = route.LikeCount + 1;
-            await _repository.UpdateAsync(route, cancellationToken);
+            await _routesRepository.UpdateAsync(route, cancellationToken);
         }
         
         public async void UnLike(Route route, CancellationToken cancellationToken)
         {
             route.LikeCount = route.LikeCount == 0 ? 0 : route.LikeCount - 1;
-            await _repository.UpdateAsync(route, cancellationToken);
+            await _routesRepository.UpdateAsync(route, cancellationToken);
         }
         
         public async void DeleteAsync(Route route, CancellationToken cancellationToken)
         {
-            await _repository.DeleteAsync(route, cancellationToken);
+            await _routesRepository.DeleteAsync(route, cancellationToken);
         }
     }
 }

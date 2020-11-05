@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Entities.Common;
 using Microsoft.AspNetCore.Identity;
 
 namespace Entities.User
 {
-    public class User: IdentityUser<int>, IEntity
+    public class User: IdentityUser<int>
     {
         public User()
         {
@@ -17,7 +16,7 @@ namespace Entities.User
         public GenderType Gender { get; set; }
         public int Age { get; set; }
         public bool IsActive { get; set; }
-        public ICollection<Route.Route> Routes { get; set; }
+        public virtual ICollection<Route.Route> Routes { get; set; }
     }
     
     public enum GenderType

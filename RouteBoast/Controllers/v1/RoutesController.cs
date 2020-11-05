@@ -13,9 +13,9 @@ namespace RouteBoast.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class RoutesController : ControllerBase
     {
-        private readonly RoutesService _routesService;
+        private readonly IRoutesService _routesService;
 
-        public RoutesController(RoutesService routesService)
+        public RoutesController(IRoutesService routesService)
         {
             _routesService = routesService;
         }
