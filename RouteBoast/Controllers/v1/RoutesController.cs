@@ -26,6 +26,28 @@ namespace RouteBoast.Controllers.v1
             var list = await _routesService.GetAllAsync(cancellationToken);
             return Ok(list);
         }
+        
+        [HttpPost]
+        [DisableRequestSizeLimit]
+        public IActionResult Upload([FromForm] CreateRouteVm createRouteVm)
+        {
+            var file = createRouteVm.Gpx;
+
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
+        {
+            var existedRoute = await _routesService.GetByIdAsync(route.Id, cancellationToken);
+            if (existedRoute == null)
+            {
+                return NotFound();
+            }
+
+            _routesService.Update(route, cancellationToken);
+            return Ok();
+        }
 
         [HttpGet("top", Name = nameof(GetTop))]
         public async Task<ActionResult<List<Route>>> GetTop(CancellationToken cancellationToken)
@@ -44,19 +66,6 @@ namespace RouteBoast.Controllers.v1
             }
 
             return Ok(route);
-        }
-
-        [HttpPut]
-        public async Task<ActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
-        {
-            var existedRoute = await _routesService.GetByIdAsync(route.Id, cancellationToken);
-            if (existedRoute == null)
-            {
-                return NotFound();
-            }
-
-            _routesService.Update(route, cancellationToken);
-            return Ok();
         }
 
         [HttpDelete("{id:int}")]
@@ -95,15 +104,6 @@ namespace RouteBoast.Controllers.v1
             }
 
             _routesService.UnLike(route, cancellationToken);
-            return Ok();
-        }
-
-        [HttpPost("upload")]
-        [DisableRequestSizeLimit]
-        public IActionResult Upload([FromForm] CreateRouteVm createRouteVm)
-        {
-            var file = createRouteVm.Gpx;
-
             return Ok();
         }
     }
