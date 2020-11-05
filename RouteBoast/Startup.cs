@@ -41,10 +41,7 @@ namespace RouteBoast
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddVersioning();
-            services.AddSwaggerGen(options =>
-            {
-                options.OperationFilter<FileUploadOperation>();
-            });
+            services.AddSwaggerGen();
         }
         
         // ConfigureContainer is where you can register things directly with Autofac. 
