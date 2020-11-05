@@ -162,7 +162,7 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Route",
+                name: "Routes",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -175,9 +175,9 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Route", x => x.Id);
+                    table.PrimaryKey("PK_Routes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Route_AspNetUsers_UserId",
+                        name: "FK_Routes_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -185,7 +185,7 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Track",
+                name: "Tracks",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -194,17 +194,17 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Track", x => x.Id);
+                    table.PrimaryKey("PK_Tracks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Track_Route_RouteId",
+                        name: "FK_Tracks_Routes_RouteId",
                         column: x => x.RouteId,
-                        principalTable: "Route",
+                        principalTable: "Routes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Waypoint",
+                name: "Waypoints",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -217,11 +217,11 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Waypoint", x => x.Id);
+                    table.PrimaryKey("PK_Waypoints", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Waypoint_Track_TrackId",
+                        name: "FK_Waypoints_Tracks_TrackId",
                         column: x => x.TrackId,
-                        principalTable: "Track",
+                        principalTable: "Tracks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -264,18 +264,18 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Route_UserId",
-                table: "Route",
+                name: "IX_Routes_UserId",
+                table: "Routes",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Track_RouteId",
-                table: "Track",
+                name: "IX_Tracks_RouteId",
+                table: "Tracks",
                 column: "RouteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Waypoint_TrackId",
-                table: "Waypoint",
+                name: "IX_Waypoints_TrackId",
+                table: "Waypoints",
                 column: "TrackId");
         }
 
@@ -297,16 +297,16 @@ namespace Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Waypoint");
+                name: "Waypoints");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Track");
+                name: "Tracks");
 
             migrationBuilder.DropTable(
-                name: "Route");
+                name: "Routes");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

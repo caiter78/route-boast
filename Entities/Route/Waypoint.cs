@@ -1,10 +1,10 @@
 ﻿using System;
-using Entities.Common;
 
 namespace Entities.Route
 {
-    public class Waypoint: BaseEntity<long>
+    public class Waypoint
     {
+        public long Id { get; set; }
         public double Lat { get; set; }
         public double Lon { get; set; }
         public DateTime Time { get; set; }

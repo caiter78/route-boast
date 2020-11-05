@@ -1,5 +1,4 @@
-﻿using Common.Utilities;
-using Entities.Common;
+﻿using Entities.Route;
 using Entities.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,15 +10,9 @@ namespace Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {}
         
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        public DbSet<Route> Routes { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+        public DbSet<Waypoint> Waypoints { get; set; }
 
-            var entitiesAssembly = typeof(IEntity).Assembly;
-
-            modelBuilder.RegisterAllEntities<IEntity>(entitiesAssembly);
-            modelBuilder.RegisterEntityTypeConfiguration(entitiesAssembly);
-        }
-        
     }
 }

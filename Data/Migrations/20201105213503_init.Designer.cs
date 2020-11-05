@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201101225803_init")]
+    [Migration("20201105213503_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,7 +47,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Route");
+                    b.ToTable("Routes");
                 });
 
             modelBuilder.Entity("Entities.Route.Track", b =>
@@ -64,7 +64,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RouteId");
 
-                    b.ToTable("Track");
+                    b.ToTable("Tracks");
                 });
 
             modelBuilder.Entity("Entities.Route.Waypoint", b =>
@@ -93,7 +93,7 @@ namespace Data.Migrations
 
                     b.HasIndex("TrackId");
 
-                    b.ToTable("Waypoint");
+                    b.ToTable("Waypoints");
                 });
 
             modelBuilder.Entity("Entities.User.Role", b =>

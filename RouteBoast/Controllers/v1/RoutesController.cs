@@ -2,9 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.Route;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RouteBoast.Swagger;
+using RouteBoast.ViewModels;
 using Services;
 
 namespace RouteBoast.Controllers.v1
@@ -14,41 +13,30 @@ namespace RouteBoast.Controllers.v1
     [Route("api/v{version:apiVersion}/[controller]")]
     public class RoutesController : ControllerBase
     {
-        private readonly RoutesService _routesService;
+        private readonly IRoutesService _routesService;
 
-        public RoutesController(RoutesService routesService)
+        public RoutesController(IRoutesService routesService)
         {
             _routesService = routesService;
         }
 
-        [HttpGet(Name = nameof(GetAll))]
+        [HttpGet]
         public async Task<ActionResult<List<Route>>> GetAll(CancellationToken cancellationToken)
         {
             var list = await _routesService.GetAllAsync(cancellationToken);
             return Ok(list);
         }
-
-        [HttpGet("top", Name = nameof(GetTop))]
-        public async Task<ActionResult<List<Route>>> GetTop(CancellationToken cancellationToken)
+        
+        [HttpPost]
+        [DisableRequestSizeLimit]
+        public IActionResult Upload([FromForm] CreateRouteVm createRouteVm)
         {
-            var list = await _routesService.GetAllAsync(cancellationToken);
-            return Ok(list);
+            var file = createRouteVm.Gpx;
+
+            return Ok();
         }
 
-        [HttpGet]
-        [Route("{id:int}", Name = nameof(Get))]
-        public virtual async Task<ActionResult<Route>> Get(long id, CancellationToken cancellationToken)
-        {
-            var route = await _routesService.GetByIdAsync(id, cancellationToken);
-            if (route == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(route);
-        }
-
-        [HttpPut(Name = nameof(Update))]
+        [HttpPut]
         public async Task<ActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
         {
             var existedRoute = await _routesService.GetByIdAsync(route.Id, cancellationToken);
@@ -61,8 +49,26 @@ namespace RouteBoast.Controllers.v1
             return Ok();
         }
 
-        [HttpDelete]
-        [Route("{id:int}", Name = nameof(Delete))]
+        [HttpGet("top", Name = nameof(GetTop))]
+        public async Task<ActionResult<List<Route>>> GetTop(CancellationToken cancellationToken)
+        {
+            var list = await _routesService.GetAllAsync(cancellationToken);
+            return Ok(list);
+        }
+
+        [HttpGet("{id:int}")]
+        public virtual async Task<ActionResult<Route>> Get(long id, CancellationToken cancellationToken)
+        {
+            var route = await _routesService.GetByIdAsync(id, cancellationToken);
+            if (route == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(route);
+        }
+
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> Delete(long id, CancellationToken cancellationToken)
         {
             var route = await _routesService.GetByIdAsync(id, cancellationToken);
@@ -75,8 +81,7 @@ namespace RouteBoast.Controllers.v1
             return NoContent();
         }
 
-        [HttpPost]
-        [Route("{id:int}/like", Name = nameof(Like))]
+        [HttpPost("{id:int}/like")]
         public async Task<ActionResult> Like(long id, CancellationToken cancellationToken)
         {
             var route = await _routesService.GetByIdAsync(id, cancellationToken);
@@ -89,8 +94,7 @@ namespace RouteBoast.Controllers.v1
             return Ok();
         }
 
-        [HttpDelete]
-        [Route("{id:int}/like", Name = nameof(Unlike))]
+        [HttpDelete("{id:int}/like")]
         public async Task<ActionResult> Unlike(long id, CancellationToken cancellationToken)
         {
             var route = await _routesService.GetByIdAsync(id, cancellationToken);
@@ -100,17 +104,6 @@ namespace RouteBoast.Controllers.v1
             }
 
             _routesService.UnLike(route, cancellationToken);
-            return Ok();
-        }
-
-        [HttpPost]
-        [FileUploadOperation.FileContentType]
-        [DisableRequestSizeLimit]
-        [Route("upload", Name = nameof(Upload))]
-        public ActionResult<Route> Upload(IFormFile file)
-        {
-            var files = Request.Form.Files;
-
             return Ok();
         }
     }
