@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Entities.Route;
+using Data.Entities.Route;
 
-namespace Services
+namespace Services.Services
 {
     public interface IRoutesService
     {

@@ -1,5 +1,5 @@
-﻿using Entities.Route;
-using Entities.User;
+﻿using Data.Entities.Route;
+using Data.Entities.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

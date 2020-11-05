@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Entities.Route;
+using Data.Entities.Route;
 using Microsoft.AspNetCore.Mvc;
 using RouteBoast.ViewModels;
-using Services;
+using Services.Services;
 
 namespace RouteBoast.Controllers.v1
 {

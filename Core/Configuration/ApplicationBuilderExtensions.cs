@@ -1,27 +1,14 @@
 ﻿using Common.Utilities;
 using Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
-namespace RouteBoast.Configuration
+namespace Core.Configuration
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseHsts(this IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            Assert.NotNull(app, nameof(app));
-            Assert.NotNull(env, nameof(env));
-
-            if (!env.IsDevelopment())
-                app.UseHsts();
-
-            return app;
-        }
-
-        public static IApplicationBuilder IntializeDatabase(this IApplicationBuilder app)
+        public static IApplicationBuilder InitializeDatabase(this IApplicationBuilder app)
         {
             Assert.NotNull(app, nameof(app));
 

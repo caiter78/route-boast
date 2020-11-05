@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Entities.Route
+namespace Data.Entities.Route
 {
     public class Waypoint
     {

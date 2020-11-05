@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Entities.Route
+namespace Data.Entities.Route
 {
     public class Route
     {

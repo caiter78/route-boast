@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Data.Contracts;
-using Entities.Route;
+using Data.Entities.Route;
+using Data.Repositories;
 
-namespace Services
+namespace Services.Services
 {
     public class RoutesService : IRoutesService
     {
