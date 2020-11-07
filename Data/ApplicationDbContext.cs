@@ -9,6 +9,13 @@ namespace Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Waypoint>()
+                .HasOne(w => w.Track)
+                .WithMany(t => t.Waypoints);
+        }
         
         public DbSet<Route> Routes { get; set; }
         public DbSet<Track> Tracks { get; set; }

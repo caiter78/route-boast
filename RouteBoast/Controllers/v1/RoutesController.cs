@@ -37,15 +37,9 @@ namespace RouteBoast.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
         {
-            var existedRoute = await _routesService.GetByIdAsync(route.Id, cancellationToken);
-            if (existedRoute == null)
-            {
-                return NotFound();
-            }
-
-            _routesService.Update(route, cancellationToken);
+            await _routesService.UpdateAsync(route, cancellationToken);
             return Ok();
         }
 
@@ -57,53 +51,31 @@ namespace RouteBoast.Controllers.v1
         }
 
         [HttpGet("{id:int}")]
-        public virtual async Task<ActionResult<Route>> Get(long id, CancellationToken cancellationToken)
+        public virtual async Task<IActionResult> Get(long id, CancellationToken cancellationToken)
         {
             var route = await _routesService.GetByIdAsync(id, cancellationToken);
-            if (route == null)
-            {
-                return NotFound();
-            }
 
             return Ok(route);
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete(long id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete(long id, CancellationToken cancellationToken)
         {
-            var route = await _routesService.GetByIdAsync(id, cancellationToken);
-            if (route == null)
-            {
-                return NotFound();
-            }
-
-            _routesService.DeleteAsync(route, cancellationToken);
+            await _routesService.DeleteAsync(id, cancellationToken);
             return NoContent();
         }
 
         [HttpPost("{id:int}/like")]
-        public async Task<ActionResult> Like(long id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Like(long id, CancellationToken cancellationToken)
         {
-            var route = await _routesService.GetByIdAsync(id, cancellationToken);
-            if (route == null)
-            {
-                return NotFound();
-            }
-
-            _routesService.Like(route, cancellationToken);
+            await _routesService.LikeAsync(id, cancellationToken);
             return Ok();
         }
 
         [HttpDelete("{id:int}/like")]
-        public async Task<ActionResult> Unlike(long id, CancellationToken cancellationToken)
+        public async Task<IActionResult> Unlike(long id, CancellationToken cancellationToken)
         {
-            var route = await _routesService.GetByIdAsync(id, cancellationToken);
-            if (route == null)
-            {
-                return NotFound();
-            }
-
-            _routesService.UnLike(route, cancellationToken);
+            await _routesService.UnLikeAsync(id, cancellationToken);
             return Ok();
         }
     }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace RouteBoast.Controllers.v1
@@ -18,6 +18,7 @@ namespace RouteBoast.Controllers.v1
         [Route("{id:int}")]
         public ActionResult GetUser(ApiVersion version, int id)
         {
+            throw new NotFoundException("User does not found");
             return new OkResult();
         }
     }

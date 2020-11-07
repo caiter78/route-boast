@@ -1,4 +1,5 @@
 using Common.Utilities;
+using Core.Middlewares;
 using Data;
 using Data.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -51,6 +52,8 @@ namespace RouteBoast
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCustomExceptionHandler();
 
             app.UseHttpsRedirection();
 

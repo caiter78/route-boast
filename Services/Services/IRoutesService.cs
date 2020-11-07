@@ -9,9 +9,9 @@ namespace Services.Services
     {
         Task<List<Route>> GetAllAsync(CancellationToken cancellationToken);
         Task<Route> GetByIdAsync(long id, CancellationToken cancellationToken);
-        void Update(Route route, CancellationToken cancellationToken);
-        void Like(Route route, CancellationToken cancellationToken);
-        void UnLike(Route route, CancellationToken cancellationToken);
-        void DeleteAsync(Route route, CancellationToken cancellationToken);
+        Task UpdateAsync(Route route, CancellationToken cancellationToken);
+        Task LikeAsync(long id, CancellationToken cancellationToken);
+        Task UnLikeAsync(long id, CancellationToken cancellationToken);
+        Task DeleteAsync(long id, CancellationToken cancellationToken);
     }
 }
