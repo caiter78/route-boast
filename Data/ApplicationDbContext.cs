@@ -1,11 +1,9 @@
 ﻿using Data.Entities.Route;
-using Data.Entities.User;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data
 {
-    public class ApplicationDbContext: IdentityDbContext<User, Role, int>
+    public class ApplicationDbContext: DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {}

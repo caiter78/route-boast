@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Data.Entities.User
 {
-    public class Role: IdentityRole<int>
+    public class Role
     {
         [Required]
         [StringLength(100)]

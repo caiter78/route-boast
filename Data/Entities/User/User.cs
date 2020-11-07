@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
 
 namespace Data.Entities.User
 {
-    public class User: IdentityUser<int>
+    public class User
     {
         public User()
         {
