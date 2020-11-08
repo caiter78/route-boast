@@ -13,6 +13,9 @@ namespace Data
             modelBuilder.Entity<Waypoint>()
                 .HasOne(w => w.Track)
                 .WithMany(t => t.Waypoints);
+            modelBuilder.Entity<Route>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.Routes);
         }
         
         public DbSet<Route> Routes { get; set; }

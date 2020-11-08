@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace RouteBoast.ViewModels
+namespace Routes.ViewModels
 {
     public class CreateRouteVm
     {

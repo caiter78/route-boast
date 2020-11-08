@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace RouteBoast.Controllers.v1
+namespace Api.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]

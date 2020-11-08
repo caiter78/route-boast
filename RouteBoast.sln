@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteBoast", "RouteBoast\RouteBoast.csproj", "{022FECDB-4634-4A18-961F-3EE7F62D50CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{022FECDB-4634-4A18-961F-3EE7F62D50CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{C84CFB8A-B5A4-4895-99A4-94FC875FA53E}"
 EndProject
@@ -9,6 +9,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B514054B-B063-4966-939D-4230FBC87142}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{D3759E6D-B91A-4DEA-A2EA-F34F515FE69D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routes", "Routes\Routes.csproj", "{6CC967A5-CE2C-4033-AB15-AFC9F089E176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 		{D3759E6D-B91A-4DEA-A2EA-F34F515FE69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3759E6D-B91A-4DEA-A2EA-F34F515FE69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3759E6D-B91A-4DEA-A2EA-F34F515FE69D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC967A5-CE2C-4033-AB15-AFC9F089E176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC967A5-CE2C-4033-AB15-AFC9F089E176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC967A5-CE2C-4033-AB15-AFC9F089E176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC967A5-CE2C-4033-AB15-AFC9F089E176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

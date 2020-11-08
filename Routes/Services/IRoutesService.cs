@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Data.Entities.Route;
+using Routes.Dtos;
 
-namespace Services.Services
+namespace Routes.Services
 {
     public interface IRoutesService
     {
-        Task<List<Route>> GetAllAsync(CancellationToken cancellationToken);
-        Task<Route> GetByIdAsync(long id, CancellationToken cancellationToken);
-        Task UpdateAsync(Route route, CancellationToken cancellationToken);
+        Task<List<RouteDto>> GetAllAsync(CancellationToken cancellationToken);
+        Task<RouteDto> GetRouteDtoByIdAsync(long id, CancellationToken cancellationToken);
+        Task UpdateAsync(RouteDto route, CancellationToken cancellationToken);
         Task LikeAsync(long id, CancellationToken cancellationToken);
         Task UnLikeAsync(long id, CancellationToken cancellationToken);
         Task DeleteAsync(long id, CancellationToken cancellationToken);

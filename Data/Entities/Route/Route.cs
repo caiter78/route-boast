@@ -21,5 +21,6 @@ namespace Data.Entities.Route
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public virtual ICollection<Track> Tracks { get; set; }
+        public virtual User.User User { get; set; }
     }
 }

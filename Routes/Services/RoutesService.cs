@@ -3,9 +3,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Common.Exceptions;
 using Data.Entities.Route;
-using Data.Repositories;
+using Routes.Dtos;
+using Routes.Repositories;
 
-namespace Services.Services
+namespace Routes.Services
 {
     public class RoutesService : IRoutesService
     {
@@ -16,14 +17,14 @@ namespace Services.Services
             _routesRepository = routesRepository;
         }
 
-        public async Task<List<Route>> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<List<RouteDto>> GetAllAsync(CancellationToken cancellationToken)
         {
             return await _routesRepository.GetAllAsync(cancellationToken);
         }
         
-        public async Task<Route> GetByIdAsync(long id, CancellationToken cancellationToken)
+        public async Task<RouteDto> GetRouteDtoByIdAsync(long id, CancellationToken cancellationToken)
         {
-            var route = await _routesRepository.GetByIdAsync(id, cancellationToken);
+            var route = await _routesRepository.GetRouteDtoByIdAsync(id, cancellationToken);
             if (route == null)
             {
                 throw new NotFoundException($"Route with id {id} not found");
@@ -32,7 +33,7 @@ namespace Services.Services
             return route;
         }
         
-        public async Task UpdateAsync(Route route, CancellationToken cancellationToken)
+        public async Task UpdateAsync(RouteDto route, CancellationToken cancellationToken)
         {
             var existedRoute = await _routesRepository.GetByIdAsync(route.Id, cancellationToken);
             if (existedRoute == null)

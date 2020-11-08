@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Data.Entities.Route;
 using Microsoft.AspNetCore.Mvc;
-using RouteBoast.ViewModels;
-using Services.Services;
+using Routes.Dtos;
+using Routes.Services;
+using Routes.ViewModels;
 
-namespace RouteBoast.Controllers.v1
+namespace Api.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]
@@ -21,7 +21,7 @@ namespace RouteBoast.Controllers.v1
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Route>>> GetAll(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<RouteDto>>> GetAll(CancellationToken cancellationToken)
         {
             var list = await _routesService.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -37,14 +37,14 @@ namespace RouteBoast.Controllers.v1
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Route route, CancellationToken cancellationToken)
+        public async Task<IActionResult> Update([FromBody] RouteDto route, CancellationToken cancellationToken)
         {
             await _routesService.UpdateAsync(route, cancellationToken);
             return Ok();
         }
 
         [HttpGet("top", Name = nameof(GetTop))]
-        public async Task<ActionResult<List<Route>>> GetTop(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<RouteDto>>> GetTop(CancellationToken cancellationToken)
         {
             var list = await _routesService.GetAllAsync(cancellationToken);
             return Ok(list);
@@ -53,7 +53,7 @@ namespace RouteBoast.Controllers.v1
         [HttpGet("{id:int}")]
         public virtual async Task<IActionResult> Get(long id, CancellationToken cancellationToken)
         {
-            var route = await _routesService.GetByIdAsync(id, cancellationToken);
+            var route = await _routesService.GetRouteDtoByIdAsync(id, cancellationToken);
 
             return Ok(route);
         }
